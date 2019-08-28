@@ -1,0 +1,19 @@
+.card {
+  height: 240px;
+  text-align: center;
+  width: 180px;
+  margin-bottom: 10px;
+  position: relative;
+
+}
+.textCard {
+  color: white;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  position: absolute;
+  text-align: center;
+  font-size: 20px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
