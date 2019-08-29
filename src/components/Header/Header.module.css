@@ -4,6 +4,7 @@
   padding: 15px;
   display: flex;
   justify-content: flex-start;
+  position: relative;
 }
 .header div {
   display: flex;
