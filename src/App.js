@@ -11,9 +11,9 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/films/premiers"
-          render={() => <Main link="movie/now_playing" />} />
+          render={() => <Main link="https://api.themoviedb.org/3/movie/now_playing?api_key=c2b5de19f08adc486af54dcc0c9946be&language=ru-RU&page=1" />} />
         <Route path="/films/onscreens"
-          render={() => <Main link="movie/upcoming" />} />
+          render={() => <Main link="https://api.themoviedb.org/3/movie/upcoming?api_key=c2b5de19f08adc486af54dcc0c9946be&language=ru-RU&page=1" />} />
         <Route path="/films/top"
           render={() => <Main link="movie/top_rated" />} />
         <Route path="/serials/popular"
