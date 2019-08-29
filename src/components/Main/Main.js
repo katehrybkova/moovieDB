@@ -7,7 +7,7 @@ import style from './Main.module.css'
 export default class Main extends Component {
 
     state = {
-        api: `${API}/now_playing?${key}`,
+        api: `${API}${this.props.link}?${key}`,
         data: []
     }
 

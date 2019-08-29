@@ -12,7 +12,6 @@ class Header extends Component {
     handleMenuOpen = () => {
         const { menuOpen } = this.state;
         this.setState({ menuOpen: !menuOpen });
-        console.log(this.state)
     }
     render() {
         const { menuOpen } = this.state;
