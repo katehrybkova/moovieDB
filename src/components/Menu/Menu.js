@@ -3,7 +3,9 @@ import style from './Menu.module.css';
 import film from '../../assets/images/film.svg';
 import video_camera from '../../assets/images/video-camera.svg';
 import rate_star_button from '../../assets/images/rate-star-button.svg';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { changeLink } from "../../redux/actions/LinkActions"
 
 
 class Menu extends Component {
@@ -29,17 +31,17 @@ class Menu extends Component {
                 <li onClick={() => this.openFilmsMenu()}><img src={film} alt="logo" width="25" />
                     <p>Фильмы</p>
                     {filmsMenuOpened && (<ul>
-                        <li><Link to="/films/premiers">Премьеры</Link></li>
-                        <li><Link to="/films/onscreens">Сейчас на экранах</Link></li>
-                        <li><Link to="/films/top">Топ 100</Link></li>
+                        <li onClick={()=>this.props.onChange("https://api.themoviedb.org/3/movie/now_playing?api_key=c2b5de19f08adc486af54dcc0c9946be&language=ru-RU&page=1")}>Премьеры</li>
+                        <li onClick={()=>this.props.onChange("https://api.themoviedb.org/3/movie/upcoming?api_key=c2b5de19f08adc486af54dcc0c9946be&language=ru-RU&page=1")}>Сейчас на экранах</li>
+                        <li onClick={()=>this.props.onChange()}>Топ 100</li>
                     </ul>)}
                 </li>
                 <li onClick={() => this.openSerialsMenu()}><img src={video_camera} alt="logo" width="25" />
                     <p>Сериалы</p>
                     {serialsMenuOpened && (<ul>
-                        <li><Link to="/serials/popular">Популярные</Link></li>
-                        <li><Link to="/serials/onair">Сейчас в эфире</Link></li>
-                        <li><Link to="/serials/bestrating">Лучший рейтинг</Link></li>
+                        <li onClick={()=>this.props.onChange()}>Популярные</li>
+                        <li onClick={()=>this.props.onChange()}>Сейчас в эфире</li>
+                        <li onClick={()=>this.props.onChange()}>Лучший рейтинг</li>
                     </ul>)}
                 </li>
                 <li><img src={rate_star_button} alt="logo" width="25" /><p>Избранное</p></li>
@@ -49,7 +51,9 @@ class Menu extends Component {
         )
     }
 }
+const mdtp = dispatch => ({
+    onChange: link => dispatch(changeLink(link))
+});
 
 
-
-export default Menu;
+export default connect(null, mdtp)(Menu);

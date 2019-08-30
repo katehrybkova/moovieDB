@@ -17,13 +17,16 @@ class Main extends Component {
         });
 
     }
-    componentDidUpdate(prevProps, prevState) {
-        if (this.props.link !== prevProps.link) {
+    componentDidUpdate(prevProps) {
+        if (this.match.params.id !== prevProps.match.params.id) {
+            // call the fetch function again
             axios.get(this.state.api).then(res => {
                 this.setState({ data: res.data.results });
             });
-        }
+          }
+
     }
+   
 
     render() {
         const { data } = this.state;

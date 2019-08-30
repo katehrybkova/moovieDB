@@ -1,11 +1,10 @@
 import {createStore, combineReducers} from 'redux';
-import {devtoolsEnchancer} from 'redux-devtools-extension';
-import LinkReducer from './reducers/LinkReducer.js';
-
+import {devToolsEnhancer} from 'redux-devtools-extension';
+import LinkReducer from './reducers/LinkReducer';
 const rootReducer = combineReducers({
     link: LinkReducer,
 })
 
-const store = createStore(rootReducer, devtoolsEnchancer);
+const store = createStore(rootReducer, devToolsEnhancer());
 
 export default store;
